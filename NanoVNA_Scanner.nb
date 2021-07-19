@@ -1,0 +1,1210 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     54481,       1202]
+NotebookOptionsPosition[     51777,       1160]
+NotebookOutlinePosition[     52168,       1176]
+CellTagsIndexPosition[     52125,       1173]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Connect this device to the NanoVNA. The NanoVNA uses the port \
+\[OpenCurlyDoubleQuote]/dev/ttyACM0\[CloseCurlyDoubleQuote]. Once the port is \
+found,  this device can connect to the NanoVNA. 
+
+If there is an error message saying that the device cannot connect, make sure \
+that the NanoVNA is open.
+If the status still shows this device to not be connected, make sure to run \
+this line of code again.\
+\>", "Text",
+ CellChangeTimes->{{3.8354628762243223`*^9, 3.8354629039324007`*^9}, {
+  3.8354629557154627`*^9, 3.835463144588661*^9}, {3.8354631757691603`*^9, 
+  3.835463181713859*^9}, {3.835463249547206*^9, 
+  3.835463302546196*^9}},ExpressionUUID->"f7eeeabf-b9ec-4eaa-bd95-\
+217d4bde8809"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"NanoVNAtty", " ", "=", " ", "\"\</dev/ttyACM0\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"dev", " ", "=", " ", 
+  RowBox[{"DeviceOpen", "[", 
+   RowBox[{"\"\<Serial\>\"", ",", "NanoVNAtty"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.8354611149952803`*^9, 3.835461204157591*^9}, 
+   3.835461330293982*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"4b951c75-fcae-4f7c-93be-6f6657c29572"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["DeviceObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"], 
+               ImageSizeCache -> {11., {0., 11.}}], Appearance -> None, 
+              BaseStyle -> {}, ButtonFunction :> (Typeset`open$$ = True), 
+              Evaluator -> Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              Thickness[0.038461538461538464`], {
+               FaceForm[{
+                 RGBColor[0.941, 0.961, 0.957], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {
+                1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.5, 2.5}, {
+                25.5, 1.395}, {24.605, 0.5}, {23.5, 0.5}, {2.5, 0.5}, {1.395, 
+                0.5}, {0.5, 1.395}, {0.5, 2.5}, {0.5, 23.5}, {0.5, 24.605}, {
+                1.395, 25.5}, {2.5, 25.5}, {23.5, 25.5}, {24.605, 25.5}, {
+                25.5, 24.605}, {25.5, 23.5}, {25.5, 2.5}}}]}, {
+               RGBColor[0.7, 0.7, 0.7], 
+               Opacity[1.], 
+               JoinForm[{"Miter", 10.}], 
+               
+               JoinedCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {
+                1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.5, 2.5}, {
+                25.5, 1.395}, {24.605, 0.5}, {23.5, 0.5}, {2.5, 0.5}, {1.395, 
+                0.5}, {0.5, 1.395}, {0.5, 2.5}, {0.5, 23.5}, {0.5, 24.605}, {
+                1.395, 25.5}, {2.5, 25.5}, {23.5, 25.5}, {24.605, 25.5}, {
+                25.5, 24.605}, {25.5, 23.5}, {25.5, 2.5}}}, 
+                CurveClosed -> {1}]}, {
+               FaceForm[{
+                 RGBColor[0.5423, 0.63104, 0.63597], 
+                 Opacity[1.]}], 
+               FilledCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {
+                1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{11.133, 
+                18.727999999999998`}, {11.133, 18.451999999999998`}, {
+                11.357000000000001`, 18.227999999999998`}, {11.633, 
+                18.227999999999998`}, {14.792, 18.227999999999998`}, {15.068, 
+                18.227999999999998`}, {15.292, 18.451999999999998`}, {15.292, 
+                18.727999999999998`}, {15.292, 20.639000000000003`}, {15.292, 
+                20.915}, {15.068, 21.139000000000003`}, {14.792, 
+                21.139000000000003`}, {11.633, 21.139000000000003`}, {
+                11.357000000000001`, 21.139000000000003`}, {11.133, 20.915}, {
+                11.133, 20.639000000000003`}, {11.133, 
+                18.727999999999998`}}}]}, {
+               FaceForm[{
+                 RGBColor[0.5, 0.5, 0.5], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{
+                12.357000000000001`, 1.}, {14.113000000000001`, 1.}, {
+                14.113000000000001`, 9.554}, {12.357000000000001`, 
+                9.554}}}]}, {
+               FaceForm[{
+                 RGBColor[0.624375, 0.695304, 0.691308], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                0}, {0, 1, 0}}}, {{{15.876000000000001`, 19.799}, {8.122, 
+                19.799}, {8.122, 11.516}, {10.573, 11.516}, {10.573, 
+                11.493}, {11.982000000000001`, 9.171}, {14.539, 9.171}, {
+                15.876000000000001`, 11.493}, {15.876000000000001`, 11.516}, {
+                18.326, 11.516}, {18.326, 19.799}, {15.876000000000001`, 
+                19.799}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{
+                8.806000000000001, 7.993}, {9.995000000000001, 7.993}, {
+                9.995000000000001, 11.008}, {8.806000000000001, 11.008}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{16.5, 
+                7.993}, {17.689, 7.993}, {17.689, 11.008}, {16.5, 
+                11.008}}}]}}, AspectRatio -> Automatic, ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             PlotRange -> {{0., 26.}, {0., 26.}}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Class: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Serial\"", "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"ID: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Status: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  DynamicModuleBox[{Devices`DeviceAPI`DeviceDump`lights$$ = {
+                    Style[
+                    Graphics[{{
+                    RGBColor[0.88, 1, 0.88], 
+                    Disk[{0, 0}]}, {
+                    RGBColor[0, 0.85, 0], 
+                    Circle[{0, 0}]}}, PlotRange -> {-2.2, 1.1}, ImageSize -> 
+                    9, ImageMargins -> {{3, 3}, {2, 0}}, 
+                    BaseStyle -> {CacheGraphics -> False}], Selectable -> 
+                    False], 
+                    Style[
+                    Graphics[{{
+                    RGBColor[1, 1, 0], 
+                    Disk[{0, 0}]}, {
+                    RGBColor[0.8, 0.8, 0], 
+                    Circle[{0, 0}]}}, PlotRange -> {-2.2, 1.1}, ImageSize -> 
+                    9, ImageMargins -> {{3, 3}, {2, 0}}, 
+                    BaseStyle -> {CacheGraphics -> False}], Selectable -> 
+                    False]}, Devices`DeviceAPI`DeviceDump`opacities$$ = {
+                    Opacity[1], 
+                    Opacity[0.2]}, 
+                    Devices`DeviceAPI`DeviceDump`status$$ = {
+                    "Connected (/dev/ttyACM0)", 
+                    "Not connected (/dev/ttyACM0)"}, 
+                    Devices`DeviceAPI`DeviceDump`d$$ = 
+                    DeviceObject[{"Serial", 1}], 
+                    Devices`DeviceAPI`DeviceDump`ind$$ = 1, 
+                    Devices`DeviceAPI`DeviceDump`indr$$ = 1}, 
+                   DynamicBox[
+                    ToBoxes[Devices`DeviceAPI`DeviceDump`ind$$ = If[
+                    DeviceOpenQ[Devices`DeviceAPI`DeviceDump`d$$], 1, 2]; 
+                    Devices`DeviceAPI`DeviceDump`indr$$ = If[
+                    DeviceFramework`DeviceRegisteredQ[
+                    Devices`DeviceAPI`DeviceDump`d$$], 1, 2]; Style[
+                    Row[{
+                    Part[
+                    Devices`DeviceAPI`DeviceDump`lights$$, 
+                    Devices`DeviceAPI`DeviceDump`ind$$], 
+                    Part[
+                    Devices`DeviceAPI`DeviceDump`status$$, 
+                    Devices`DeviceAPI`DeviceDump`ind$$]}], 
+                    Part[
+                    Devices`DeviceAPI`DeviceDump`opacities$$, 
+                    Devices`DeviceAPI`DeviceDump`indr$$]], StandardForm], 
+                    ImageSizeCache -> {145., {2.09375, 8.}}], 
+                   DynamicModuleValues :> {}], "SummaryItem"]}], 
+               "\[SpanFromLeft]"}}, AutoDelete -> False, 
+             BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {
+              "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+          False, BaselinePosition -> {1, 1}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True -> 
+        GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              Appearance -> None, BaseStyle -> {}, 
+              ButtonFunction :> (Typeset`open$$ = False), Evaluator -> 
+              Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              Thickness[0.038461538461538464`], {
+               FaceForm[{
+                 RGBColor[0.941, 0.961, 0.957], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {
+                1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.5, 2.5}, {
+                25.5, 1.395}, {24.605, 0.5}, {23.5, 0.5}, {2.5, 0.5}, {1.395, 
+                0.5}, {0.5, 1.395}, {0.5, 2.5}, {0.5, 23.5}, {0.5, 24.605}, {
+                1.395, 25.5}, {2.5, 25.5}, {23.5, 25.5}, {24.605, 25.5}, {
+                25.5, 24.605}, {25.5, 23.5}, {25.5, 2.5}}}]}, {
+               RGBColor[0.7, 0.7, 0.7], 
+               Opacity[1.], 
+               JoinForm[{"Miter", 10.}], 
+               
+               JoinedCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {
+                1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.5, 2.5}, {
+                25.5, 1.395}, {24.605, 0.5}, {23.5, 0.5}, {2.5, 0.5}, {1.395, 
+                0.5}, {0.5, 1.395}, {0.5, 2.5}, {0.5, 23.5}, {0.5, 24.605}, {
+                1.395, 25.5}, {2.5, 25.5}, {23.5, 25.5}, {24.605, 25.5}, {
+                25.5, 24.605}, {25.5, 23.5}, {25.5, 2.5}}}, 
+                CurveClosed -> {1}]}, {
+               FaceForm[{
+                 RGBColor[0.5423, 0.63104, 0.63597], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {
+                1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{11.133, 
+                18.727999999999998`}, {11.133, 18.451999999999998`}, {
+                11.357000000000001`, 18.227999999999998`}, {11.633, 
+                18.227999999999998`}, {14.792, 18.227999999999998`}, {15.068, 
+                18.227999999999998`}, {15.292, 18.451999999999998`}, {15.292, 
+                18.727999999999998`}, {15.292, 20.639000000000003`}, {15.292, 
+                20.915}, {15.068, 21.139000000000003`}, {14.792, 
+                21.139000000000003`}, {11.633, 21.139000000000003`}, {
+                11.357000000000001`, 21.139000000000003`}, {11.133, 20.915}, {
+                11.133, 20.639000000000003`}, {11.133, 
+                18.727999999999998`}}}]}, {
+               FaceForm[{
+                 RGBColor[0.5, 0.5, 0.5], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{
+                12.357000000000001`, 1.}, {14.113000000000001`, 1.}, {
+                14.113000000000001`, 9.554}, {12.357000000000001`, 
+                9.554}}}]}, {
+               FaceForm[{
+                 RGBColor[0.624375, 0.695304, 0.691308], 
+                 Opacity[1.]}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
+                0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+                0}, {0, 1, 0}}}, {{{15.876000000000001`, 19.799}, {8.122, 
+                19.799}, {8.122, 11.516}, {10.573, 11.516}, {10.573, 
+                11.493}, {11.982000000000001`, 9.171}, {14.539, 9.171}, {
+                15.876000000000001`, 11.493}, {15.876000000000001`, 11.516}, {
+                18.326, 11.516}, {18.326, 19.799}, {15.876000000000001`, 
+                19.799}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{
+                8.806000000000001, 7.993}, {9.995000000000001, 7.993}, {
+                9.995000000000001, 11.008}, {8.806000000000001, 11.008}}}], 
+               
+               FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{16.5, 
+                7.993}, {17.689, 7.993}, {17.689, 11.008}, {16.5, 
+                11.008}}}]}}, AspectRatio -> Automatic, ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             PlotRange -> {{0., 26.}, {0., 26.}}], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Class: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Serial\"", "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"ID: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["1", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Status: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  DynamicModuleBox[{Devices`DeviceAPI`DeviceDump`lights$$ = {
+                    Style[
+                    Graphics[{{
+                    RGBColor[0.88, 1, 0.88], 
+                    Disk[{0, 0}]}, {
+                    RGBColor[0, 0.85, 0], 
+                    Circle[{0, 0}]}}, PlotRange -> {-2.2, 1.1}, ImageSize -> 
+                    9, ImageMargins -> {{3, 3}, {2, 0}}, 
+                    BaseStyle -> {CacheGraphics -> False}], Selectable -> 
+                    False], 
+                    Style[
+                    Graphics[{{
+                    RGBColor[1, 1, 0], 
+                    Disk[{0, 0}]}, {
+                    RGBColor[0.8, 0.8, 0], 
+                    Circle[{0, 0}]}}, PlotRange -> {-2.2, 1.1}, ImageSize -> 
+                    9, ImageMargins -> {{3, 3}, {2, 0}}, 
+                    BaseStyle -> {CacheGraphics -> False}], Selectable -> 
+                    False]}, Devices`DeviceAPI`DeviceDump`opacities$$ = {
+                    Opacity[1], 
+                    Opacity[0.2]}, 
+                    Devices`DeviceAPI`DeviceDump`status$$ = {
+                    "Connected (/dev/ttyACM0)", 
+                    "Not connected (/dev/ttyACM0)"}, 
+                    Devices`DeviceAPI`DeviceDump`d$$ = 
+                    DeviceObject[{"Serial", 1}], 
+                    Devices`DeviceAPI`DeviceDump`ind$$, 
+                    Devices`DeviceAPI`DeviceDump`indr$$}, 
+                   DynamicBox[
+                    ToBoxes[Devices`DeviceAPI`DeviceDump`ind$$ = If[
+                    DeviceOpenQ[Devices`DeviceAPI`DeviceDump`d$$], 1, 2]; 
+                    Devices`DeviceAPI`DeviceDump`indr$$ = If[
+                    DeviceFramework`DeviceRegisteredQ[
+                    Devices`DeviceAPI`DeviceDump`d$$], 1, 2]; Style[
+                    Row[{
+                    Part[
+                    Devices`DeviceAPI`DeviceDump`lights$$, 
+                    Devices`DeviceAPI`DeviceDump`ind$$], 
+                    Part[
+                    Devices`DeviceAPI`DeviceDump`status$$, 
+                    Devices`DeviceAPI`DeviceDump`ind$$]}], 
+                    Part[
+                    Devices`DeviceAPI`DeviceDump`opacities$$, 
+                    Devices`DeviceAPI`DeviceDump`indr$$]], StandardForm]], 
+                   DynamicModuleValues :> {}], "SummaryItem"]}], 
+               "\[SpanFromLeft]"}, {
+               TagBox[
+                
+                DynamicModuleBox[{
+                 Devices`DeviceAPI`DeviceDump`opacities$$ = {
+                    Opacity[1], 
+                    Opacity[0.2]}, Devices`DeviceAPI`DeviceDump`d$$ = 
+                  DeviceObject[{"Serial", 1}], 
+                  Devices`DeviceAPI`DeviceDump`props$$, 
+                  Devices`DeviceAPI`DeviceDump`vals$$, 
+                  Devices`DeviceAPI`DeviceDump`reg$$}, 
+                 DynamicBox[
+                  ToBoxes[
+                  Devices`DeviceAPI`DeviceDump`reg$$ = 
+                    DeviceFramework`DeviceRegisteredQ[
+                    Devices`DeviceAPI`DeviceDump`d$$]; 
+                   Devices`DeviceAPI`DeviceDump`props$$ = 
+                    DeviceFramework`DeviceExternalProperties[
+                    Devices`DeviceAPI`DeviceDump`d$$]; 
+                   Devices`DeviceAPI`DeviceDump`vals$$ = 
+                    Devices`DeviceAPI`DeviceDump`d$$[
+                    Devices`DeviceAPI`DeviceDump`props$$]; Column[
+                    Join[{
+                    BoxForm`SummaryItem[{"Properties: ", 
+                    If[
+                    Or[
+                    Not[Devices`DeviceAPI`DeviceDump`reg$$], 
+                    Devices`DeviceAPI`DeviceDump`props$$ === {}], 
+                    Style[None, 
+                    Part[Devices`DeviceAPI`DeviceDump`opacities$$, 
+                    If[Devices`DeviceAPI`DeviceDump`reg$$, 1, 2]]], ""]}]}, 
+                    MapThread[BoxForm`SummaryItem[{
+                    StringJoin["      ", 
+                    ToString[#], ": "], #2}]& , {
+                    Devices`DeviceAPI`DeviceDump`props$$, 
+                    Devices`DeviceAPI`DeviceDump`vals$$}]]], StandardForm]], 
+                 DynamicModuleValues :> {}], "SummaryItem"], 
+               "\[SpanFromLeft]"}}, AutoDelete -> False, 
+             BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {
+              "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+          False, BaselinePosition -> {1, 1}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  DeviceObject[{"Serial", 1}],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.835461330866972*^9, {3.83546284370072*^9, 3.8354628478225*^9}, {
+   3.835641067772657*^9, 3.835641070534896*^9}},
+ CellLabel->"Out[9]=",ExpressionUUID->"1c1ee0d5-94c2-4d75-8ec8-bd9140ef6aa1"]
+}, Open  ]],
+
+Cell["\<\
+These three functions help read information sent from the NanoVNA. The \
+function that is built in, DeviceReadBuffer, often does not take all the \
+input as there seems to be a limit. The three functions work as follows:\
+\[LineSeparator]readPartial uses the built in method of reading, but adds the \
+previous input too.
+noPrompt makes sure there is no more prompt that needs to be read.
+readResponce is the final result of this method, which takes everything a \
+normal DeviceReadBuffer would emit.\
+\>", "Text",
+ CellChangeTimes->{{3.835463315652027*^9, 3.835463337711192*^9}, {
+  3.835463396695092*^9, 3.835463510775167*^9}, {3.835466362959179*^9, 
+  3.835466435121167*^9}, {3.835466469477777*^9, 
+  3.835466535606909*^9}},ExpressionUUID->"b34b1817-5f04-4041-9338-\
+a5ec4660567c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"readPartial", "[", "front_", "]"}], ":=", 
+   RowBox[{"front", "<>", 
+    RowBox[{"FromCharacterCode", "[", 
+     RowBox[{"DeviceReadBuffer", "[", "dev", "]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"noPrompt", "[", "s_", "]"}], ":=", 
+   RowBox[{"!", 
+    RowBox[{"StringMatchQ", "[", 
+     RowBox[{"s", ",", 
+      RowBox[{"___", "~~", "\"\<\\r\\nch> \>\"", "~~", "EndOfString"}]}], 
+     "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"readResponse", "[", "]"}], ":=", 
+   RowBox[{"NestWhile", "[", 
+    RowBox[{"readPartial", ",", "\"\<\>\"", ",", "noPrompt"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.835461101793839*^9, 3.835461109696006*^9}, {
+   3.835461156134515*^9, 3.835461156936954*^9}, 3.8354612348695173`*^9},
+ CellLabel->"In[10]:=",ExpressionUUID->"62b8c220-1485-4b4d-9cb8-03ef53106df8"],
+
+Cell["\<\
+Checks if the device connected is actually the NanoVNA. After running, this \
+output should be true. \
+\>", "Text",
+ CellChangeTimes->{{3.8354665791727943`*^9, 
+  3.835466665001356*^9}},ExpressionUUID->"5e62bb1c-e38f-4bac-809b-\
+dc36fc05091a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"VNACheck", "[", "]"}], " ", ":=", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"WriteString", "[", 
+     RowBox[{"NanoVNAtty", ",", 
+      RowBox[{"\"\<info\>\"", "<>", "\"\<\\r\>\""}]}], "]"}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"info", " ", "=", " ", 
+     RowBox[{"readResponse", "[", "]"}]}], " ", ";", "\[IndentingNewLine]", 
+    RowBox[{"StringContainsQ", "[", 
+     RowBox[{"info", ",", 
+      RowBox[{"_", "~~", "\"\<NanoVNA\>\"", "~~", "_"}]}], "]"}]}], 
+   ")"}]}], "\[IndentingNewLine]", 
+ RowBox[{"VNACheck", "[", "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.835461435210601*^9, 3.835461485683942*^9}, {
+  3.8354615306739283`*^9, 3.8354616910649233`*^9}, {3.835461762816236*^9, 
+  3.835461774098559*^9}, {3.8354618528118753`*^9, 3.835461917610931*^9}, {
+  3.835461962893132*^9, 3.835461979156477*^9}, {3.8354620465642*^9, 
+  3.8354620538852262`*^9}, {3.835462094636936*^9, 3.8354620949225273`*^9}, {
+  3.835462139183878*^9, 3.835462186228222*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"055e5eb4-48e4-4885-9b73-21f271d2b88a"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.835461897513837*^9, 3.83546191870393*^9}, 
+   3.835461966020384*^9, 3.83546205528538*^9, 3.8354628549788713`*^9, 
+   3.835641076697309*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"cc2325e3-8fae-44fa-833b-3e3a435d08fe"]
+}, Open  ]],
+
+Cell["\<\
+Function for Scanning. Takes the parameters and sends it to the Nano VNA. \
+This function takes the starting HZ, the ending HZ, and the number of points \
+in-between.Commands are sent to the tty as devicewrite seems to be a bit \
+buggy. After this data is sent to the NanoVNA, it is formatted by  removing \
+everything before \[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote] for \
+each port. The output of this function is then formatted into pairs of  \
+{f,{x0,y0},{x1,y1}} and are stored as datax for port 0 and datay for port 1 \
+in which information is formatted as {x1,y1,x2,y2...,xn,yn} for both sequences.
+
+To use, type runScan[x,y,z] and let x be the starting HZ,let y be the ending \
+HZ, and let z be the number of points.\
+\>", "Text",
+ CellChangeTimes->{{3.83547235377931*^9, 3.835472365868845*^9}, {
+  3.835475373169279*^9, 3.8354754234321213`*^9}, {3.835475696277183*^9, 
+  3.8354757787998734`*^9}, {3.835476371153323*^9, 3.8354764121103497`*^9}, {
+  3.835477093611006*^9, 
+  3.8354771592358913`*^9}},ExpressionUUID->"64da606e-bb8f-45d7-b4e8-\
+cff0cdbc3da5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"runScan", "[", 
+    RowBox[{"startHZ_", ",", "endHZ_", ",", "points_"}], "]"}], " ", ":=", 
+   " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"WriteString", "[", 
+      RowBox[{"NanoVNAtty", ",", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"Riffle", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<scan\>\"", ",", 
+             RowBox[{"ToString", "[", "startHZ", "]"}], ",", 
+             RowBox[{"ToString", "[", "endHZ", "]"}], ",", 
+             RowBox[{"ToString", "[", "points", "]"}]}], "}"}], ",", 
+           "\"\< \>\""}], "]"}], "]"}], "<>", "\"\<\\r\>\""}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Pause", "[", "2", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"WriteString", "[", 
+      RowBox[{"NanoVNAtty", ",", 
+       RowBox[{"\"\<data 0\>\"", "<>", "\"\<\\r\>\""}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"data1", " ", "=", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{"readResponse", "[", "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"n", " ", "=", " ", 
+      RowBox[{"Position", "[", 
+       RowBox[{"data1", ",", "\"\<data\>\""}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"datax", " ", "=", " ", 
+      RowBox[{"ToExpression", "[", 
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"Drop", "[", 
+          RowBox[{"data1", ",", 
+           RowBox[{
+            RowBox[{"First", "[", 
+             RowBox[{"Flatten", "[", "n", "]"}], "]"}], "+", "1"}]}], "]"}], 
+         ",", 
+         RowBox[{"points", "*", "2"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Pause", "[", "1", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"WriteString", "[", 
+      RowBox[{"\"\</dev/ttyACM0\>\"", ",", 
+       RowBox[{"\"\<data 1\>\"", "<>", "\"\<\\r\>\""}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"data2", " ", "=", " ", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{"readResponse", "[", "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"m", " ", "=", " ", 
+      RowBox[{"Position", "[", 
+       RowBox[{"data2", ",", "\"\<data\>\""}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"datay", " ", "=", " ", 
+      RowBox[{"ToExpression", "[", 
+       RowBox[{"Take", "[", 
+        RowBox[{
+         RowBox[{"Drop", "[", 
+          RowBox[{"data2", ",", 
+           RowBox[{
+            RowBox[{"First", "[", 
+             RowBox[{"Flatten", "[", "m", "]"}], "]"}], "+", "1"}]}], "]"}], 
+         ",", 
+         RowBox[{"points", "*", "2"}]}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"f", "[", "n_", "]"}], " ", ":=", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"endHZ", " ", "-", " ", "startHZ"}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"points", "-", "1"}], ")"}]}], 
+         RowBox[{"(", 
+          RowBox[{"n", "-", "1"}], ")"}]}], " ", "+", " ", "startHZ"}], 
+       ")"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"frequencies", " ", "=", " ", 
+      RowBox[{"Array", "[", "\[IndentingNewLine]", 
+       RowBox[{"f", "\[IndentingNewLine]", ",", "points"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"y", "[", "z_", "]"}], ":=", "\[IndentingNewLine]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"result", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"result", ",", 
+          RowBox[{"frequencies", "[", 
+           RowBox[{"[", "z", "]"}], "]"}]}], "]"}], ";", " ", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"result", ",", 
+          RowBox[{"datax", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"2", "z"}], "-", "1"}], ";;", 
+             RowBox[{"2", "z"}]}], "]"}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"result", ",", 
+          RowBox[{"datay", "[", 
+           RowBox[{"[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"2", "z"}], "-", "1"}], ";;", 
+             RowBox[{"2", "z"}]}], "]"}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "result", "]"}]}], "\[IndentingNewLine]", 
+       ")"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"final", " ", "=", " ", 
+      RowBox[{"Array", "[", " ", 
+       RowBox[{"y", "\[IndentingNewLine]", ",", "points"}], "]"}]}]}], 
+    "\[IndentingNewLine]", " ", ")"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.835471435984168*^9, 3.835471461255883*^9}, 
+   3.835477325573731*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"8d19bcf0-ee59-48e1-8561-cf518dd52cca"],
+
+Cell["\<\
+Another method of displaying the information.  This function loops around a \
+smaller function, which extracts x and y values out of the port data, which \
+is then used to find. the amplitude and phase shift for each frequency. This \
+data is formatted as {f,{a0,a0^2,o0},{a1,a1^2,o1}}  \
+\>", "Text",
+ CellChangeTimes->{{3.835477459175146*^9, 3.835477476801877*^9}, {
+  3.835477572711935*^9, 3.835477683039302*^9}, {3.835477728694091*^9, 
+  3.835477792798842*^9}, {3.83547797596144*^9, 3.835478006349183*^9}, {
+  3.835478063413281*^9, 3.835478099098865*^9}, {3.8354783858431387`*^9, 
+  3.835478407493566*^9}, {3.835478582983014*^9, 3.8354785988559313`*^9}, {
+  3.83548211127528*^9, 3.8354821938372927`*^9}, {3.8354824552643547`*^9, 
+  3.835482463032797*^9}},ExpressionUUID->"82c4a0f9-5925-45c3-90c3-\
+c66f90892335"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"scan2", "[", "]"}], ":=", " ", 
+  RowBox[{
+  "(", "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"q", "[", "b_", "]"}], " ", ":=", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"frq", " ", "=", " ", 
+        RowBox[{"frequencies", "[", 
+         RowBox[{"[", "b", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"x1", " ", "=", " ", 
+        RowBox[{"datax", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"2", "b"}], "-", "1"}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"y1", " ", "=", " ", 
+        RowBox[{"datax", "[", 
+         RowBox[{"[", 
+          RowBox[{"2", "b"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"x2", " ", "=", " ", 
+        RowBox[{"datay", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"2", "b"}], "-", "1"}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"y2", " ", "=", " ", 
+        RowBox[{"datay", "[", 
+         RowBox[{"[", 
+          RowBox[{"2", "b"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"a1", " ", "=", " ", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"x1", "^", "2"}], " ", "+", " ", 
+          RowBox[{"y1", "^", "2"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"a2", " ", "=", " ", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"x2", "^", "2"}], "+", 
+          RowBox[{"y2", "^", "2"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"o1", " ", "=", " ", 
+        RowBox[{"ArcTan", "[", 
+         RowBox[{"x1", ",", "y1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"o2", " ", "=", " ", 
+        RowBox[{"ArcTan", "[", 
+         RowBox[{"x2", ",", "y2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rs", "=", " ", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"rs", ",", "frq"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"rs", ",", 
+         RowBox[{"{", 
+          RowBox[{"a1", ",", 
+           RowBox[{"a1", "^", "2"}], ",", "o1"}], "}"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"AppendTo", "[", 
+        RowBox[{"rs", ",", 
+         RowBox[{"{", 
+          RowBox[{"a2", ",", 
+           RowBox[{"a2", "^", "2"}], ",", "o2"}], "}"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "rs"}], "\[IndentingNewLine]", ")"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Array", "[", 
+     RowBox[{"q", ",", 
+      RowBox[{"Length", "[", "frequencies", "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", ")"}]}]], "Input",
+ CellLabel->"In[16]:=",ExpressionUUID->"6041c4cc-cadd-46ef-b3c4-efb5afed33bf"],
+
+Cell["\<\
+This function finds the reflected power by squaring the x and y values from \
+port 0.  \
+\>", "Text",
+ CellChangeTimes->{{3.835310139346899*^9, 3.835310145780805*^9}, {
+  3.835644153161209*^9, 3.8356442073017817`*^9}, {3.835644245940083*^9, 
+  3.835644246099387*^9}, {3.835644288106374*^9, 3.8356443123415527`*^9}, {
+  3.835644366069395*^9, 
+  3.835644366333476*^9}},ExpressionUUID->"fafa2e69-0c4d-4dad-9ab6-\
+b77e677593a2"],
+
+Cell[BoxData[
+ RowBox[{"FindRPO", " ", ":=", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"rpo", " ", "=", 
+     RowBox[{"{", "}"}]}], " ", ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"refpower", "[", "bbb_", "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"rpo", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"frequencies", "[", 
+           RowBox[{"[", "bbb", "]"}], "]"}], ",", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"datax", "[", 
+             RowBox[{"[", "bbb", "]"}], "]"}], "^", "2"}], "+", 
+           RowBox[{
+            RowBox[{"datax", "[", 
+             RowBox[{"[", 
+              RowBox[{"bbb", "+", "1"}], "]"}], "]"}], "^", "2"}]}]}], 
+         "}"}]}], "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      ")"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Array", "[", 
+     RowBox[{"refpower", ",", 
+      RowBox[{"Length", "[", "frequencies", "]"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", "rpo"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.834689930334093*^9, 3.83468995778253*^9}, {
+  3.8346912168499813`*^9, 3.834691251223971*^9}, {3.834693175021228*^9, 
+  3.834693191590933*^9}, {3.834693239654052*^9, 3.8346933072550783`*^9}, {
+  3.834693445145756*^9, 3.834693455643387*^9}, {3.834693616273897*^9, 
+  3.834693642406205*^9}, {3.834694520796973*^9, 3.8346945412143517`*^9}, {
+  3.8346947325139523`*^9, 3.834694733768567*^9}, {3.83469479613518*^9, 
+  3.8346948011382933`*^9}, {3.8346967361129913`*^9, 3.834696746326745*^9}, {
+  3.835640957468938*^9, 3.835640968877139*^9}, {3.8356410200124683`*^9, 
+  3.8356410578035088`*^9}, {3.8356419156052637`*^9, 3.8356419173703814`*^9}, {
+  3.835642546127734*^9, 3.835642560248659*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"7dc7c487-e6df-41fa-903a-bb454f6cf23d"],
+
+Cell["\<\
+This function finds the transmitted power by squaring the x and y values for \
+port 1.\
+\>", "Text",
+ CellChangeTimes->{{3.835362883968932*^9, 3.835362898282743*^9}, {
+  3.835644320238448*^9, 
+  3.8356443566758966`*^9}},ExpressionUUID->"b8cd2c71-cf00-446e-a34a-\
+1c77b2d3664b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindTPO", "[", "]"}], " ", ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"tpo", " ", "=", 
+     RowBox[{"{", "}"}]}], " ", ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"transmitpower", "[", "bbb_", "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"tpo", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"frequencies", "[", 
+           RowBox[{"[", "bbb", "]"}], "]"}], ",", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"datay", "[", 
+             RowBox[{"[", "bbb", "]"}], "]"}], "^", "2"}], "+", 
+           RowBox[{
+            RowBox[{"datay", "[", 
+             RowBox[{"[", 
+              RowBox[{"bbb", "+", "1"}], "]"}], "]"}], "^", "2"}]}]}], 
+         "}"}]}], "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      ")"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Array", "[", 
+     RowBox[{"transmitpower", ",", 
+      RowBox[{"Length", "[", "frequencies", "]"}]}], "]"}], ";", 
+    "\[IndentingNewLine]", "tpo"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.834694937973352*^9, 3.8346949836903343`*^9}, {
+  3.834696698180873*^9, 3.8346967217557373`*^9}, {3.835641178069091*^9, 
+  3.83564118203616*^9}, {3.835641960707945*^9, 3.83564196217706*^9}, {
+  3.8356423679202843`*^9, 3.835642392346833*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"f5cc94f3-b952-4970-9f19-1b1fff9934c6"],
+
+Cell["\<\
+This function finds the reflected phase by finding the arctan value of the y \
+over x values for port 0.\
+\>", "Text",
+ CellChangeTimes->{{3.8353629095476418`*^9, 3.8353629142917023`*^9}, {
+  3.835644376438757*^9, 3.8356444363756437`*^9}, {3.835644552392447*^9, 
+  3.835644583629093*^9}, {3.835644676762196*^9, 
+  3.8356446895082407`*^9}},ExpressionUUID->"7009490a-2775-49bb-92c6-\
+7a4449612c5f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindRPH", "[", "]"}], " ", ":=", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"rph", " ", "=", 
+     RowBox[{"{", "}"}]}], " ", ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"refphase", "[", "bbb_", "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"rph", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"frequencies", "[", 
+           RowBox[{"[", "bbb", "]"}], "]"}], ",", " ", 
+          RowBox[{"ArcTan", "[", 
+           RowBox[{
+            RowBox[{"datax", "[", 
+             RowBox[{"[", "bbb", "]"}], "]"}], ",", 
+            RowBox[{"datax", "[", 
+             RowBox[{"[", 
+              RowBox[{"bbb", "+", "1"}], "]"}], "]"}]}], "]"}]}], "}"}]}], 
+       "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", ")"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Array", "[", 
+     RowBox[{"refphase", ",", 
+      RowBox[{"Length", "[", "frequencies", "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", ")"}]}]], "Input",
+ CellChangeTimes->{{3.834696371799963*^9, 3.8346963940208883`*^9}, {
+  3.8346966115387697`*^9, 3.8346966883411493`*^9}, {3.835640974951817*^9, 
+  3.8356409795512447`*^9}, {3.8356410165404587`*^9, 3.83564101721277*^9}, {
+  3.835641103617695*^9, 3.835641110362981*^9}, {3.8356419658515263`*^9, 
+  3.835641967345086*^9}, {3.835642453435473*^9, 3.835642473956563*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"47fb0480-78f8-432c-b6ec-e224b59b356e"],
+
+Cell["\<\
+This function finds the transmitted phase by finding the arctan value of the \
+y over x values for port 1.\
+\>", "Text",
+ CellChangeTimes->{{3.835484421085333*^9, 3.835484433398241*^9}, {
+  3.835644592133953*^9, 3.835644607904025*^9}, {3.8356446560151377`*^9, 
+  3.8356446666088142`*^9}, {3.835644730873642*^9, 
+  3.835644747564136*^9}},ExpressionUUID->"8b37a3ff-2c6b-4bf0-a25c-\
+0bf6befef253"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FindTPH", "[", "]"}], " ", ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"tph", " ", "=", 
+     RowBox[{"{", "}"}]}], " ", ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"transmitphase", "[", "bbb_", "]"}], " ", ":=", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{"AppendTo", "[", 
+       RowBox[{"tph", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"frequencies", "[", 
+           RowBox[{"[", "bbb", "]"}], "]"}], ",", " ", 
+          RowBox[{"ArcTan", "[", 
+           RowBox[{
+            RowBox[{"datay", "[", 
+             RowBox[{"[", "bbb", "]"}], "]"}], ",", 
+            RowBox[{"datay", "[", 
+             RowBox[{"[", 
+              RowBox[{"bbb", "+", "1"}], "]"}], "]"}]}], "]"}]}], "}"}]}], 
+       "]"}], "\[IndentingNewLine]", "\[IndentingNewLine]", ")"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Array", "[", 
+     RowBox[{"transmitphase", ",", 
+      RowBox[{"Length", "[", "frequencies", "]"}]}], "]"}], ";"}], 
+   ")"}]}]], "Input",
+ CellChangeTimes->{{3.8347114017687883`*^9, 3.834711443308968*^9}, {
+  3.835640601902993*^9, 3.8356406039629707`*^9}, {3.835640986368423*^9, 
+  3.835641014060218*^9}, {3.835641115370852*^9, 3.835641121916082*^9}, {
+  3.835641971556332*^9, 3.8356419743869534`*^9}, {3.8356425024500113`*^9, 
+  3.8356425322843647`*^9}},
+ CellLabel->"In[72]:=",ExpressionUUID->"46c3befa-fa9a-4e4d-b9f7-fe7dfbc6fb79"],
+
+Cell["\<\
+Data plotting for the graph that partitions the List into two plots, which is \
+then combined in a \
+\>", "Text",
+ CellChangeTimes->{{3.83564076120007*^9, 
+  3.835640841555366*^9}},ExpressionUUID->"2b8569cf-3dbc-4d14-bbb1-\
+8f0f658b11b8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"plottingData", "[", "str_", "]"}], " ", ":=", " ", 
+  RowBox[{"(", "\[IndentingNewLine]", 
+   RowBox[{"ListPlot", "[", "str", "]"}], "\[IndentingNewLine]", 
+   ")"}]}]], "Input",
+ CellChangeTimes->{{3.835640610545988*^9, 3.8356407344447813`*^9}, {
+  3.835640871388369*^9, 3.835640882393888*^9}, {3.8356417140383263`*^9, 
+  3.835641718877761*^9}, {3.8356418833590517`*^9, 3.835641892556663*^9}, {
+  3.835642575219617*^9, 3.8356425779694777`*^9}},
+ CellLabel->"In[73]:=",ExpressionUUID->"e2aa5b5c-bf70-4972-b137-7c8ac4714ee8"],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.8354854494144*^9, 3.8354854663127127`*^9}, {
+  3.8356408889933157`*^9, 
+  3.8356409165982027`*^9}},ExpressionUUID->"69813f4a-bee4-4ce5-8d74-\
+0b2c2a690df8"],
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"c", "=", "0"}], ",", " ", 
+     RowBox[{"thisplot", " ", "=", " ", "0"}]}], "}"}], ",", 
+   RowBox[{"Panel", "[", 
+    RowBox[{"Grid", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<startHZ\>\"", ",", 
+         RowBox[{"InputField", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", "start", "]"}], ",", "Number"}], "]"}]}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<endHZ\>\"", ",", 
+         RowBox[{"InputField", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", "end", "]"}], ",", "Number"}], "]"}]}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Points\>\"", ",", 
+         RowBox[{"InputField", "[", 
+          RowBox[{
+           RowBox[{"Dynamic", "[", "point", "]"}], ",", "Number"}], "]"}]}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<Scan\>\"", ",", 
+           RowBox[{"c", " ", "=", 
+            RowBox[{"runScan", "[", 
+             RowBox[{"start", ",", "end", ",", "point"}], "]"}]}]}], "]"}], 
+         ",", " ", 
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<clear\>\"", ",", " ", 
+           RowBox[{"c", " ", "=", " ", "0"}]}], "]"}], ",", 
+         RowBox[{"Dynamic", "[", "c", "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<Plot rpo\>\"", ",", 
+           RowBox[{
+            RowBox[{"FindRPO", "[", "]"}], ";", 
+            RowBox[{"thisplot", " ", "=", 
+             RowBox[{"plottingData", "[", "rpo", "]"}]}]}]}], "]"}], ",", 
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<Plot tpo\>\"", ",", 
+           RowBox[{
+            RowBox[{"FindTPO", "[", "]"}], ";", 
+            RowBox[{"thisplot", " ", "=", " ", 
+             RowBox[{"plottingData", "[", "tpo", "]"}]}]}]}], "]"}], ",", 
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<Plot rph\>\"", ",", 
+           RowBox[{
+            RowBox[{"FindRPH", "[", "]"}], ";", 
+            RowBox[{"thisplot", " ", "=", " ", 
+             RowBox[{"plottingData", "[", "rph", "]"}]}]}]}], "]"}], ",", 
+         RowBox[{"Button", "[", 
+          RowBox[{"\"\<Plot tph\>\"", ",", " ", 
+           RowBox[{
+            RowBox[{"FindTPH", "[", "]"}], ";", 
+            RowBox[{"thisplot", " ", "=", " ", 
+             RowBox[{"plottingData", "[", "tph", "]"}]}]}]}], "]"}]}], "}"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"Dynamic", "[", "thisplot", "]"}], "}"}]}], 
+      "\[IndentingNewLine]", "}"}], "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.833916456354867*^9, 3.833916517667186*^9}, 
+   3.833916749012508*^9, {3.833916985571282*^9, 3.833916988509766*^9}, {
+   3.833917019127796*^9, 3.833917058661166*^9}, 3.833918210458455*^9, {
+   3.833926978679517*^9, 3.8339270079879313`*^9}, {3.833927201216172*^9, 
+   3.833927263799746*^9}, {3.833927295787332*^9, 3.833927457121419*^9}, {
+   3.835640469157542*^9, 3.835640521857386*^9}, {3.835640921985468*^9, 
+   3.8356409438504963`*^9}, {3.835641192224215*^9, 3.835641340898299*^9}, {
+   3.8356423012598963`*^9, 3.835642353447239*^9}, {3.83564258821521*^9, 
+   3.835642624539008*^9}, {3.835642666422057*^9, 3.835642708557095*^9}, {
+   3.835643834096258*^9, 3.835643875489479*^9}},
+ CellLabel->"In[77]:=",ExpressionUUID->"971fcd6f-abc0-4118-8d55-c49c8afb8f85"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`c$$ = 0, $CellContext`thisplot$$ = 
+  Graphics[{{}, {{{
+       Directive[
+        PointSize[0.009166666666666668], 
+        RGBColor[0.368417, 0.506779, 0.709798], 
+        AbsoluteThickness[1.6]], 
+       Point[CompressedData["
+1:eJwllQtUjGkYx8WJarKSSxvZkkhW7VaUlnp6dHGNzlhULtFx2ZNIVJSR04rl
+SFLKTNNMc58WhaGLQS1md2a+maaZrqZG2U20aON00Sba1+x7znu+853zPud7
+vt///3/euXGJ9L3jx40bt4fsL88vK6v1KhZr54QqKBO82WrTtGgGE0fSIWy+
+sgNab04vNdCZaDPkkB6+1ASPJzkzjucycea420dl0zqgLNYj0lnHRNbQ0Kfk
+S+3AqvJ1+4PGwsNjtBPdIc8ga0rQcMIaFtZcXzogMbVB4v7V2mm/sDBPlb6d
+Fm2CbbV0nlzBwtdcg+m6axuEO+xI3j2+CDNNXl3Bu9vBmxRYBRfhkdmjdY57
+jOCkTHK6ebIIE7P6aa+2t4GVM+Pd5vtFWGC8ruSKn0J/6lnF6HAR+nhYPbHd
+aIQOXS5T6MfGoLXDLtu6WoFawE5Ym8zGXOOkgRG/p1CRIQ5+f5uNFWMLD7z9
+phV4LTenM/vYSLMqo3U7tkK2l7wnyLMY774pzymMaYFjZxUPuuOL0c3n0CKr
+j80QRz6QXVqMhd/Lo4euNMMGP+Me35fFqO07sU/R0QQBOV3L2uZxcGtnsfKz
+vgncXvbaZu7m4NCSmLyH6kawCxp+7l7CwaSfMrznTGmCjwXjK3QmDtIT5F38
+3xqAHD+fMouLKQe7m6rpjWAIc9jhFMXFLvHdgGalAR5y5no/KeBinLaGUc5u
+gNLBby3jG7l4Mb938+lOPeRH+BntppZgSzZj/8ceA5wSB5dVbShBrkjmUmij
+h/hPazN3Zpfg+rOU5q9AA2wmy5IqwfzSzoERls7Mo2UCDy2m+SR7svRQOL4i
+41dXHqavmDRBs7HOzIeBPPy3NsVDYaGHzJhaeuQuHsrzz8i6A7RmXvNO8bAh
+9LF3RYcODsrUCz5weOj2bOlyXYTGzI96wMMMlz63K7o6iLJpGuG087A6T7bF
+toAy80wa4eGqq3FGg14LIaQg1JGPl9mO1sctKTPfr5fxcYsfI/7HHg18J+8R
+vNnCx2v3PK45CNRm3rUpfLTPWTnb6KCBWfb9qXlX+GgRaCnu3qc28997h49n
+ansVEE2BJQES0MDHxHusU/7harMetu/5aP15om9IhRrePZrk/HyKAKuMNfN4
+oWqzPne8BOiV5JRV5qoGk6N9/9kIAUpX+D8z0NVmvWISBGj5tnXdtusqIPZV
+el4Q4N5TtSmhyWqzfhbXBEgbfFJdFqECgofdpBJguRzbNpL+v+hZ+kqAeW1y
+bpilCrhzvRNPTBTiOQ+hgGpQm/XdMF+IiubUye1PlXA+bXmIa6gQOdY9R3+m
+UWa9B+OEeOzo/VecR0pIJg2pM4X42HlV4YUVlFn/Yp4Q81jePrG1StjlEfkm
+sZbUVwprrA5QZj+EdAhxSOnv+bBFCeuIwDM/CXGthSjtRR4FSAbA69kijNKW
+hXVaqIDIlf/wBxGa7E2h7pUULCZAc6NFGCILKhGgClxJoPccF+H77PS/6fUU
+kLgb/K+KkNece+dggQomkx+gVYowyDjQe7KbggkkoB1NInwZeancZ1QFw89P
+T5H1i/CQzDs+ZISCf2zPp52xF2PfBUlPdKoaXizL6YryFuO2Usmc2MkaIO1E
+LI4Uo4uNXUTfJzXU5zKrxg6J8VFgrP9Odw38/oAzt/EieS9/kWtkUkDsc0Fy
+Q4znFjhJi8M1cGt66WCaRoyHa9YHBQRrgOCMjXgtRq/0tuS0JA2wE2RqF2sJ
+Rmrtvhob1MBlZpXvgLsE6ZnNfzJvaIDYn6MMl6Cz56iNr1wLDGIg9l4Jduod
+X937oIEjZKAdypLgrjFOsv58HZDx2I5CCSpWZt85GaMFgidsxmMJMkpN8bP2
+6WATCWTPcwm63Aw6KiB5IMcdH4xJMK11U+Xm1fVA7Hz60jdS5MLSIveddbCE
+BCAuUIo5qUcawFEPRN6tftuluGJqBkdlowMyPh9Zn5Di/IVb1nwu0MMMYrhn
+LCk2CnZGu9TrgMSx4Fa1FBmSAyl6ewP8f19IkYrpqLpYXg//AWuEIUA=
+        
+        "]]}}}, {{}, {}}}, {
+   DisplayFunction -> Identity, DisplayFunction -> Identity, AspectRatio -> 
+    GoldenRatio^(-1), Axes -> {True, True}, AxesLabel -> {None, None}, 
+    AxesOrigin -> {9.791666666666667*^7, 0}, DisplayFunction :> Identity, 
+    Frame -> {{False, False}, {False, False}}, 
+    FrameLabel -> {{None, None}, {None, None}}, 
+    FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+    GridLines -> {None, None}, GridLinesStyle -> Directive[
+      GrayLevel[0.5, 0.4]], 
+    Method -> {
+     "OptimizePlotMarkers" -> True, "OptimizePlotMarkers" -> True, 
+      "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+          Identity[
+           Part[#, 1]], 
+          Identity[
+           Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+          Identity[
+           Part[#, 1]], 
+          Identity[
+           Part[#, 2]]}& )}}, 
+    PlotRange -> {{9.791666666666667*^7, 2.*^8}, {0, 0.4809048820733747}}, 
+    PlotRangeClipping -> True, PlotRangePadding -> {{
+       Scaled[0.02], 
+       Scaled[0.02]}, {
+       Scaled[0.02], 
+       Scaled[0.05]}}, Ticks -> {Automatic, Automatic}}]}, 
+  PanelBox[
+   TagBox[GridBox[{
+      {"\<\"startHZ\"\>", 
+       InputFieldBox[Dynamic[$CellContext`start], Number], "", ""},
+      {"\<\"endHZ\"\>", 
+       InputFieldBox[Dynamic[$CellContext`end], Number], "", ""},
+      {"\<\"Points\"\>", 
+       InputFieldBox[Dynamic[$CellContext`point], Number], "", ""},
+      {
+       ButtonBox["\<\"Scan\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`c$$ = \
+$CellContext`runScan[$CellContext`start, $CellContext`end, \
+$CellContext`point]),
+        Evaluator->Automatic,
+        Method->"Preemptive"], 
+       ButtonBox["\<\"clear\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`c$$ = 0),
+        Evaluator->Automatic,
+        Method->"Preemptive"], 
+       DynamicBox[ToBoxes[$CellContext`c$$, StandardForm],
+        ImageSizeCache->{6., {0., 7.}}], ""},
+      {
+       ButtonBox["\<\"Plot rpo\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`FindRPO[]; $CellContext`thisplot$$ = \
+$CellContext`plottingData[$CellContext`rpo]),
+        Evaluator->Automatic,
+        Method->"Preemptive"], 
+       ButtonBox["\<\"Plot tpo\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`FindTPO[]; $CellContext`thisplot$$ = \
+$CellContext`plottingData[$CellContext`tpo]),
+        Evaluator->Automatic,
+        Method->"Preemptive"], 
+       ButtonBox["\<\"Plot rph\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`FindRPH[]; $CellContext`thisplot$$ = \
+$CellContext`plottingData[$CellContext`rph]),
+        Evaluator->Automatic,
+        Method->"Preemptive"], 
+       ButtonBox["\<\"Plot tph\"\>",
+        Appearance->Automatic,
+        ButtonFunction:>($CellContext`FindTPH[]; $CellContext`thisplot$$ = \
+$CellContext`plottingData[$CellContext`tph]),
+        Evaluator->Automatic,
+        Method->"Preemptive"]},
+      {
+       DynamicBox[ToBoxes[$CellContext`thisplot$$, StandardForm],
+        ImageSizeCache->{180., {56., 59.}}], "", "", ""}
+     },
+     AutoDelete->False,
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Grid"]],
+  DynamicModuleValues:>{}]], "Input",
+ CellChangeTimes->{{3.8356439269347486`*^9, 
+  3.835643927661817*^9}},ExpressionUUID->"64856a99-6d3b-4e22-a2f6-\
+da10db1bdd84"]
+},
+WindowSize->{800, 416},
+WindowMargins->{{2, Automatic}, {-30, Automatic}},
+FrontEndVersion->"12.2 for Linux ARM (32-bit) (March 25, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b3b97604-b22b-4d84-a62c-9e7a30d6242f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 704, 14, 127, "Text",ExpressionUUID->"f7eeeabf-b9ec-4eaa-bd95-217d4bde8809"],
+Cell[CellGroupData[{
+Cell[1287, 38, 427, 9, 53, "Input",ExpressionUUID->"4b951c75-fcae-4f7c-93be-6f6657c29572"],
+Cell[1717, 49, 18754, 363, 64, "Output",ExpressionUUID->"1c1ee0d5-94c2-4d75-8ec8-bd9140ef6aa1"]
+}, Open  ]],
+Cell[20486, 415, 794, 14, 150, "Text",ExpressionUUID->"b34b1817-5f04-4041-9338-a5ec4660567c"],
+Cell[21283, 431, 928, 24, 75, "Input",ExpressionUUID->"62b8c220-1485-4b4d-9cb8-03ef53106df8"],
+Cell[22214, 457, 253, 6, 35, "Text",ExpressionUUID->"5e62bb1c-e38f-4bac-809b-dc36fc05091a"],
+Cell[CellGroupData[{
+Cell[22492, 467, 1104, 22, 119, "Input",ExpressionUUID->"055e5eb4-48e4-4885-9b73-21f271d2b88a"],
+Cell[23599, 491, 272, 4, 34, "Output",ExpressionUUID->"cc2325e3-8fae-44fa-833b-3e3a435d08fe"]
+}, Open  ]],
+Cell[23886, 498, 1084, 18, 196, "Text",ExpressionUUID->"64da606e-bb8f-45d7-b4e8-cff0cdbc3da5"],
+Cell[24973, 518, 4932, 125, 691, "Input",ExpressionUUID->"8d19bcf0-ee59-48e1-8561-cf518dd52cca"],
+Cell[29908, 645, 826, 13, 81, "Text",ExpressionUUID->"82c4a0f9-5925-45c3-90c3-c66f90892335"],
+Cell[30737, 660, 2818, 70, 471, "Input",ExpressionUUID->"6041c4cc-cadd-46ef-b3c4-efb5afed33bf"],
+Cell[33558, 732, 434, 9, 35, "Text",ExpressionUUID->"fafa2e69-0c4d-4dad-9ab6-b77e677593a2"],
+Cell[33995, 743, 1880, 39, 185, "Input",ExpressionUUID->"7dc7c487-e6df-41fa-903a-bb454f6cf23d"],
+Cell[35878, 784, 287, 7, 35, "Text",ExpressionUUID->"b8cd2c71-cf00-446e-a34a-1c77b2d3664b"],
+Cell[36168, 793, 1439, 34, 163, "Input",ExpressionUUID->"f5cc94f3-b952-4970-9f19-1b1fff9934c6"],
+Cell[37610, 829, 406, 8, 35, "Text",ExpressionUUID->"7009490a-2775-49bb-92c6-7a4449612c5f"],
+Cell[38019, 839, 1525, 34, 185, "Input",ExpressionUUID->"47fb0480-78f8-432c-b6ec-e224b59b356e"],
+Cell[39547, 875, 404, 8, 35, "Text",ExpressionUUID->"8b37a3ff-2c6b-4bf0-a25c-0bf6befef253"],
+Cell[39954, 885, 1437, 34, 141, "Input",ExpressionUUID->"46c3befa-fa9a-4e4d-b9f7-fe7dfbc6fb79"],
+Cell[41394, 921, 248, 6, 35, "Text",ExpressionUUID->"2b8569cf-3dbc-4d14-bbb1-8f0f658b11b8"],
+Cell[41645, 929, 559, 10, 75, "Input",ExpressionUUID->"e2aa5b5c-bf70-4972-b137-7c8ac4714ee8"],
+Cell[42207, 941, 195, 4, 35, "Text",ExpressionUUID->"69813f4a-bee4-4ce5-8d74-0b2c2a690df8"],
+Cell[42405, 947, 3588, 82, 295, "Input",ExpressionUUID->"971fcd6f-abc0-4118-8d55-c49c8afb8f85"],
+Cell[45996, 1031, 5777, 127, 269, InheritFromParent,ExpressionUUID->"64856a99-6d3b-4e22-a2f6-da10db1bdd84"]
+}
+]
+*)
+
